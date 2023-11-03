@@ -49,6 +49,9 @@ def jsonld_to_rdf(jsonld_obj, filename, output_format=None):
 
     # Initiate a graph
     g = Graph().parse(data=json.dumps(jsonld_obj), format='json-ld')
+    g.bind('dcat', 'http://www.w3.org/ns/dcat#')
+    g.bind('dct', 'http://purl.org/dc/terms/')
+    g.bind('sdm', 'https://smartdatamodels.org/')
     # Available formats for serialization and corresponding file extensions
     formats = {
         'pretty-xml': 'rdf',
